@@ -1,0 +1,1 @@
+i choose this company because i like logistics solving problems planning and coordination having warehouse experience along with trucking experience along with inventory control experience along with order fulfillment experience and reverse logistics experience
