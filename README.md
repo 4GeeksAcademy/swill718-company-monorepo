@@ -28,6 +28,17 @@ This repository is the **starter template** for transversal projects. You will w
 5. **Start implementing** in the right folder — do not dump everything in the root.
 6. **Document** what you add: each new app, service, agent, or pipeline gets a subfolder + README.
 
+### Run the TrackFlow website
+
+With Node.js 22.12+ and npm available, run these commands from the repository root:
+
+```sh
+npm ci --prefix uis/website
+npx --prefix uis/website vite uis/website --host 0.0.0.0 --port 3000 --strictPort
+```
+
+The Vite server binds to `0.0.0.0` for Codespaces port forwarding. Open port 3000 in the Ports panel; see [`uis/website/README.md`](./uis/website/README.md) for browser tests and deployment notes.
+
 ---
 
 ## How to think about this monorepo
