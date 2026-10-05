@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#087f70">
-    <meta name="description" content="TrackFlow handles e-commerce fulfillment, last-mile delivery, and returns in the United States and Spain. Discover our Los Angeles and Zaragoza operations.">
+    <meta name="description" content="Warehouse management and last-mile deliveries for e-commerce. TrackFlow serves the United States and Spain from Los Angeles and Zaragoza.">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="TrackFlow | From shelf to doorstep">
-    <meta property="og:description" content="Your products. Our responsibility. E-commerce logistics in the United States and Spain since 2009.">
-    <title>TrackFlow | E-commerce Fulfillment in the US & Spain</title>
+    <meta property="og:title" content="TrackFlow | Logistics that scales with your e-commerce">
+    <meta property="og:description" content="Warehouse management, last-mile deliveries, and reverse logistics in the United States and Spain.">
+    <title>TrackFlow | Logistics that scales with your e-commerce</title>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml">
     <link rel="preload" href="/images/warehouse.webp" as="image" fetchpriority="high">
     <script type="application/ld+json">
@@ -16,18 +16,24 @@
         "@context": "https://schema.org",
         "@type": "Organization",
         "name": "TrackFlow",
-        "description": "E-commerce warehousing, fulfillment, last-mile delivery, and reverse logistics in the United States and Spain.",
+        "description": "Warehouse management and last-mile deliveries for e-commerce",
+        "url": "https://trackflow.com",
         "foundingDate": "2009",
-        "areaServed": [{"@type": "Country", "name": "United States"}, {"@type": "Country", "name": "Spain"}],
-        "location": [
-          {"@type": "Place", "name": "Los Angeles warehouse", "address": {"@type": "PostalAddress", "addressLocality": "Los Angeles", "addressRegion": "CA", "addressCountry": "US"}},
-          {"@type": "Place", "name": "Zaragoza warehouse", "address": {"@type": "PostalAddress", "addressLocality": "Zaragoza", "addressCountry": "ES"}}
+        "address": [
+          {"@type": "PostalAddress", "addressCountry": "US", "addressLocality": "Los Angeles", "addressRegion": "California"},
+          {"@type": "PostalAddress", "addressCountry": "ES", "addressLocality": "Zaragoza", "addressRegion": "Aragón"}
         ],
-        "hasOfferCatalog": {"@type": "OfferCatalog", "name": "Logistics services", "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Warehousing and fulfillment"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Last-mile delivery"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Reverse logistics"}}
-        ]}
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+1-213-555-0147",
+          "contactType": "sales",
+          "availableLanguage": ["Spanish", "English"]
+        },
+        "sameAs": ["https://linkedin.com/company/trackflow"],
+        "areaServed": [
+          {"@type": "Country", "name": "United States"},
+          {"@type": "Country", "name": "Spain"}
+        ]
       }
     </script>
     <script type="module" src="/main.js"></script>
@@ -36,133 +42,62 @@
     <a href="#main" class="sr-only z-50 rounded-sm bg-white p-4 text-teal-900 focus:not-sr-only focus:absolute focus:left-4 focus:top-4">Skip to content</a>
     <header class="relative z-20 border-b border-zinc-200 bg-white">
       <div class="mx-auto flex min-h-20 max-w-7xl items-center justify-between gap-6 px-5 sm:px-8 lg:px-12">
-        <a href="/" aria-label="TrackFlow home" class="flex shrink-0 items-center gap-2.5 rounded-sm text-2xl font-extrabold text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">
-          <span class="flex size-9 items-center justify-center rounded-md bg-teal-700 text-white"><i data-lucide="route" class="size-6" aria-hidden="true"></i></span>TrackFlow<span class="-ml-2 text-teal-700">.</span>
-        </a>
-        <nav aria-label="Main navigation" class="hidden items-center gap-8 text-sm font-semibold md:flex">
-          <a href="#services" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Our services</a>
-          <a href="#about" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Why TrackFlow</a>
-          <a href="#locations" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Our locations</a>
-        </nav>
-        <a href="/application.html" class="hidden items-center gap-3 rounded-md bg-teal-700 px-5 py-3 text-sm font-bold text-white transition hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 md:inline-flex">Let's talk logistics<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a>
+        <a href="#home" aria-label="TrackFlow home" class="flex shrink-0 items-center gap-2.5 rounded-sm text-2xl font-extrabold text-zinc-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700"><span class="flex size-9 items-center justify-center rounded-md bg-teal-700 text-white"><i data-lucide="route" class="size-6" aria-hidden="true"></i></span>TrackFlow<span class="-ml-2 text-teal-700">.</span></a>
+        <nav aria-label="Main navigation" class="hidden items-center gap-7 text-sm font-semibold md:flex"><a href="#home" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Home</a><a href="#services" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Services</a><a href="#coverage" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Coverage</a><a href="#contact" class="py-3 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Contact</a></nav>
+        <a href="/application.html" class="hidden items-center gap-2 rounded-md bg-teal-700 px-4 py-3 text-sm font-bold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700 md:inline-flex">Request information<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a>
         <button id="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-nav" class="flex size-11 items-center justify-center rounded-md border border-zinc-200 hover:bg-zinc-100 focus-visible:outline-2 focus-visible:outline-teal-700 md:hidden"><i data-lucide="menu" class="size-5" aria-hidden="true"></i></button>
       </div>
-      <nav id="mobile-nav" aria-label="Mobile navigation" hidden class="border-t border-zinc-200 px-5 py-4 md:hidden">
-        <a href="#services" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Our services</a>
-        <a href="#about" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Why TrackFlow</a>
-        <a href="#locations" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Our locations</a>
-        <a href="/application.html" class="mt-2 block rounded-md bg-teal-700 px-4 py-3 font-bold text-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-teal-700">Let's talk logistics</a>
-      </nav>
+      <nav id="mobile-nav" aria-label="Mobile navigation" hidden class="border-t border-zinc-200 px-5 py-4 md:hidden"><a href="#home" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Home</a><a href="#services" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Services</a><a href="#coverage" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Coverage</a><a href="#contact" class="block rounded-sm px-2 py-3 font-semibold hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-teal-700">Contact</a></nav>
     </header>
     <main id="main">
-      <section aria-labelledby="hero-heading" class="relative isolate overflow-hidden">
+      <section id="home" aria-labelledby="hero-heading" class="relative isolate overflow-hidden border-b border-zinc-200">
         <img src="/images/warehouse.webp" alt="Warehouse shelves and sorting conveyors filled with parcels ready for fulfillment" width="1600" height="1067" fetchpriority="high" class="absolute inset-0 -z-20 size-full object-cover object-[65%_center]">
-        <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-r from-white via-white/95 to-white/10 max-md:from-white/95 max-md:via-white/90 max-md:to-white/65"></div>
-        <div class="mx-auto max-w-7xl px-5 pb-8 pt-10 sm:px-8 sm:pt-12 lg:px-12">
-          <div class="max-w-xl">
-            <p class="mb-6 flex items-center gap-2.5 text-xs font-bold uppercase tracking-[0] text-teal-800"><span class="size-2 rounded-full bg-teal-700" aria-hidden="true"></span>E-commerce logistics. Built around you.</p>
-            <h1 id="hero-heading" class="text-5xl leading-[1.1] font-extrabold text-zinc-900 sm:text-6xl">TrackFlow<span class="text-teal-700">.</span></h1>
-            <p class="mt-3 text-3xl leading-tight font-semibold text-zinc-900 sm:text-4xl">From shelf<br>to doorstep.</p>
-            <p class="mt-6 max-w-md text-base leading-7 text-zinc-600 sm:text-lg">You build a brand people love. We store, pack, deliver, and handle the returns. Your logistics, in good hands.</p>
-            <div class="mt-6 flex flex-wrap items-center gap-4">
-              <a href="/application.html" class="inline-flex min-h-12 items-center gap-4 rounded-md bg-teal-700 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Find your logistics solution<i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i></a>
-              <a href="#services" class="inline-flex min-h-12 items-center gap-2 rounded-sm px-2 py-3 text-sm font-semibold text-zinc-900 hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Explore our services<i data-lucide="arrow-down" class="size-4" aria-hidden="true"></i></a>
-            </div>
-            <p class="mt-6 flex items-center gap-2 text-xs font-semibold text-zinc-600"><i data-lucide="globe-2" class="size-4 text-teal-700" aria-hidden="true"></i>Local expertise. United States & Spain.</p>
+        <div aria-hidden="true" class="absolute inset-0 -z-10 bg-linear-to-r from-white via-white/95 to-white/15 max-md:from-white/95 max-md:via-white/90 max-md:to-white/65"></div>
+        <div class="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20 lg:px-12 lg:py-24">
+          <div class="max-w-3xl">
+            <p class="text-xs font-bold uppercase text-teal-800">E-commerce logistics · United States & Spain</p>
+            <h1 id="hero-heading" class="mt-4 text-4xl leading-tight font-extrabold text-zinc-900 sm:text-5xl lg:text-6xl">Logistics that scales with your e-commerce</h1>
+            <p class="mt-6 max-w-2xl text-base leading-7 text-zinc-700 sm:text-lg sm:leading-8">Warehouse management, last-mile deliveries, and reverse logistics in the United States and Spain. Over 15 years helping fashion, electronics, and cosmetics brands grow without worrying about operations.</p>
+            <a href="/application.html" class="mt-8 inline-flex min-h-12 items-center gap-3 rounded-md bg-teal-700 px-6 py-3.5 text-sm font-bold text-white hover:bg-teal-800 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Request information<i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i></a>
           </div>
-          <div class="mt-8 grid max-w-2xl grid-cols-3 gap-3 border-t border-zinc-300/70 pt-6 sm:gap-8">
-            <div><p class="text-2xl font-extrabold text-zinc-900 sm:text-3xl">2009</p><p class="mt-1 text-xs text-zinc-600 sm:text-sm">Moving brands since</p></div>
-            <div class="border-l border-zinc-300/70 pl-4 sm:pl-8"><p class="text-2xl font-extrabold text-zinc-900 sm:text-3xl">2<span class="hidden sm:inline"> countries</span></p><p class="mt-1 text-xs text-zinc-600 sm:text-sm"><span class="sm:hidden">Countries, one partner</span><span class="hidden sm:inline">One dedicated partner</span></p></div>
-            <div class="border-l border-zinc-300/70 pl-4 sm:pl-8"><p class="text-2xl font-extrabold text-zinc-900 sm:text-3xl">8<span class="hidden sm:inline"> carriers</span></p><p class="mt-1 text-xs text-zinc-600 sm:text-sm"><span class="sm:hidden">Carriers in our network</span><span class="hidden sm:inline">A connected network</span></p></div>
-          </div>
+          <div class="mt-10 flex flex-wrap gap-x-8 gap-y-3 border-t border-zinc-300/70 pt-5 text-sm font-semibold text-zinc-700"><span>Founded in 2009</span><span>130+ professionals</span><span>Two-country operations</span></div>
         </div>
       </section>
       <section id="services" aria-labelledby="services-heading" class="scroll-mt-8 border-b border-zinc-200">
         <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-          <div class="flex flex-col justify-between gap-5 md:flex-row md:items-end">
-            <div><p class="text-xs font-bold uppercase text-teal-700">Your end-to-end logistics partner</p><h2 id="services-heading" class="mt-3 text-3xl leading-tight font-bold text-zinc-900 sm:text-4xl">Every step. Taken care of.</h2></div>
-            <p class="max-w-sm text-sm leading-6 text-zinc-600">From the moment inventory arrives to the moment your customer opens the box. And everything after.</p>
-          </div>
-          <div class="mt-10 grid gap-8 md:grid-cols-3 md:gap-0">
-            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:pr-8">
-              <div class="flex items-center justify-between"><span class="flex size-12 items-center justify-center rounded-md bg-teal-50 text-teal-700"><i data-lucide="warehouse" class="size-6" aria-hidden="true"></i></span><span class="text-xs font-semibold text-zinc-400">01 /</span></div>
-              <h3 class="mt-5 text-xl font-bold text-zinc-900">Warehousing & fulfillment</h3>
-              <p class="mt-3 text-sm leading-6 text-zinc-600">A home for your inventory. A team for your orders. We store your products, pick with care, and pack them ready for their next chapter.</p>
-              <ul class="mt-5 space-y-2 text-sm font-medium"><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Inventory storage</li><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Order picking & packing</li></ul>
-              <a href="/application.html?service=fulfillment" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-bold text-teal-700 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Let's get you moving<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a>
-            </article>
-            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:border-l md:px-8 md:pt-0">
-              <div class="flex items-center justify-between"><span class="flex size-12 items-center justify-center rounded-md bg-sky-50 text-sky-700"><i data-lucide="truck" class="size-6" aria-hidden="true"></i></span><span class="text-xs font-semibold text-zinc-400">02 /</span></div>
-              <h3 class="mt-5 text-xl font-bold text-zinc-900">Last-mile delivery</h3>
-              <p class="mt-3 text-sm leading-6 text-zinc-600">The final mile makes the first impression. We coordinate your shipments across a network of carriers in the United States and Spain.</p>
-              <ul class="mt-5 space-y-2 text-sm font-medium"><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Carrier coordination</li><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Delivery incident management</li></ul>
-              <a href="/application.html?service=last-mile" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-bold text-teal-700 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Go the extra mile<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a>
-            </article>
-            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:border-l md:pl-8 md:pt-0">
-              <div class="flex items-center justify-between"><span class="flex size-12 items-center justify-center rounded-md bg-amber-50 text-amber-700"><i data-lucide="rotate-ccw" class="size-6" aria-hidden="true"></i></span><span class="text-xs font-semibold text-zinc-400">03 /</span></div>
-              <h3 class="mt-5 text-xl font-bold text-zinc-900">Returns & reverse logistics</h3>
-              <p class="mt-3 text-sm leading-6 text-zinc-600">A return shouldn't be a dead end. We manage the journey back, from collection and inspection to reconditioning or disposal.</p>
-              <ul class="mt-5 space-y-2 text-sm font-medium"><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Returns review & collection</li><li class="flex items-center gap-2"><i data-lucide="check" class="size-4 text-teal-700" aria-hidden="true"></i>Product inspection & handling</li></ul>
-              <a href="/application.html?service=returns" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-bold text-teal-700 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Make returns simpler<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a>
-            </article>
+          <p class="text-xs font-bold uppercase text-teal-700">End-to-end e-commerce operations</p><h2 id="services-heading" class="mt-3 text-3xl font-bold text-zinc-900 sm:text-4xl">Our services</h2>
+          <div class="mt-9 grid gap-8 md:grid-cols-3 md:gap-0">
+            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:pr-8"><span class="flex size-12 items-center justify-center rounded-md bg-teal-50 text-teal-700"><i data-lucide="warehouse" class="size-6" aria-hidden="true"></i></span><h3 class="mt-5 text-xl font-bold text-zinc-900">Warehouse Management</h3><ul class="mt-4 space-y-3 text-sm leading-6 text-zinc-600"><li>Storage, picking and packing</li><li>Real-time inventory</li><li>We operate warehouses in Los Angeles and Zaragoza</li></ul></article>
+            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:border-l md:px-8"><span class="flex size-12 items-center justify-center rounded-md bg-sky-50 text-sky-700"><i data-lucide="truck" class="size-6" aria-hidden="true"></i></span><h3 class="mt-5 text-xl font-bold text-zinc-900">Last-Mile Deliveries</h3><ul class="mt-4 space-y-3 text-sm leading-6 text-zinc-600"><li>Certified carrier network in both countries</li><li>Unified shipment tracking</li><li>Incident and returns management</li></ul></article>
+            <article class="border-t border-zinc-200 pt-6 md:border-t-0 md:border-l md:pl-8"><span class="flex size-12 items-center justify-center rounded-md bg-amber-50 text-amber-700"><i data-lucide="rotate-ccw" class="size-6" aria-hidden="true"></i></span><h3 class="mt-5 text-xl font-bold text-zinc-900">Reverse Logistics</h3><ul class="mt-4 space-y-3 text-sm leading-6 text-zinc-600"><li>Complete returns management</li><li>Inspection and reconditioning</li><li>Integration with your sales platform</li></ul></article>
           </div>
         </div>
       </section>
-      <section id="about" aria-labelledby="about-heading" class="scroll-mt-8 bg-zinc-50">
-        <div class="mx-auto grid max-w-7xl items-center gap-10 px-5 py-16 sm:px-8 md:grid-cols-2 lg:gap-20 lg:px-12 lg:py-20">
-          <div class="relative">
-            <img src="/images/fulfillment.jpg" alt="Warehouse operatives working among stocked inventory racks" width="1000" height="667" loading="lazy" decoding="async" class="aspect-[5/4] w-full rounded-md object-cover">
-            <div class="absolute bottom-4 left-4 right-4 flex items-center gap-3 rounded-md bg-white p-4 shadow-sm sm:bottom-6 sm:left-6 sm:right-auto sm:pr-10"><span class="flex size-10 shrink-0 items-center justify-center rounded-full bg-teal-50 text-teal-700"><i data-lucide="package-check" class="size-5" aria-hidden="true"></i></span><div><p class="text-sm font-bold text-zinc-900">Real people. Real care.</p><p class="mt-0.5 text-xs text-zinc-600">Behind every order is our team.</p></div></div>
-          </div>
-          <div>
-            <p class="text-xs font-bold uppercase text-teal-700">Big on logistics. Bigger on people.</p>
-            <h2 id="about-heading" class="mt-3 text-3xl leading-tight font-bold text-zinc-900 sm:text-4xl">Your brand deserves<br>a partner, not a provider.</h2>
-            <p class="mt-5 text-base leading-7 text-zinc-600">Since 2009, we've helped e-commerce brands do what they do best, while we take care of what happens next.</p>
-            <p class="mt-4 text-sm leading-7 text-zinc-600">With around 130 people across Los Angeles and Zaragoza, we bring hands-on experience to every box, every delivery, and every return. Your logistics operation is our responsibility.</p>
-            <div class="mt-7 space-y-5">
-              <div class="flex gap-3"><i data-lucide="handshake" class="mt-1 size-5 shrink-0 text-teal-700" aria-hidden="true"></i><div><h3 class="text-sm font-bold text-zinc-900">One relationship, the whole journey</h3><p class="mt-1 text-sm leading-6 text-zinc-600">Storage, delivery, and returns under one roof.</p></div></div>
-              <div class="flex gap-3"><i data-lucide="map-pin" class="mt-1 size-5 shrink-0 text-teal-700" aria-hidden="true"></i><div><h3 class="text-sm font-bold text-zinc-900">Local teams on both sides of the Atlantic</h3><p class="mt-1 text-sm leading-6 text-zinc-600">People who understand your market and your customers.</p></div></div>
-            </div>
+      <section id="coverage" aria-labelledby="coverage-heading" class="scroll-mt-8 bg-zinc-50">
+        <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20"><p class="text-xs font-bold uppercase text-teal-700">Two markets. Local operations.</p><h2 id="coverage-heading" class="mt-3 text-3xl font-bold text-zinc-900 sm:text-4xl">Coverage</h2>
+          <div class="mt-9 grid gap-6 md:grid-cols-2">
+            <article class="border-t-2 border-teal-700 bg-white p-6 sm:p-8"><p class="text-xs font-bold uppercase text-teal-700">United States</p><h3 class="mt-2 text-2xl font-bold text-zinc-900">Los Angeles</h3><ul class="mt-5 space-y-3 text-sm leading-6 text-zinc-600"><li>Warehouse in Los Angeles</li><li>National coverage</li><li>Carriers: UPS, FedEx, DHL</li></ul></article>
+            <article class="border-t-2 border-sky-700 bg-white p-6 sm:p-8"><p class="text-xs font-bold uppercase text-sky-700">Spain</p><h3 class="mt-2 text-2xl font-bold text-zinc-900">Zaragoza</h3><ul class="mt-5 space-y-3 text-sm leading-6 text-zinc-600"><li>Warehouse in Zaragoza</li><li>Peninsular and island coverage</li><li>Carriers: MRW, SEUR, DHL</li></ul></article>
           </div>
         </div>
       </section>
-      <section id="locations" aria-labelledby="locations-heading" class="scroll-mt-8">
-        <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20">
-          <div class="grid gap-10 lg:grid-cols-[1fr_1.5fr] lg:gap-16">
-            <div><p class="text-xs font-bold uppercase text-teal-700">Two countries. One TrackFlow.</p><h2 id="locations-heading" class="mt-3 text-3xl leading-tight font-bold text-zinc-900 sm:text-4xl">Closer to<br>your customers.</h2><p class="mt-5 max-w-sm text-sm leading-7 text-zinc-600">Two warehouse locations. Local operations teams. A carrier network that keeps your orders moving.</p><a href="/application.html" class="mt-5 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-bold text-teal-700 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-teal-700">Tell us where you're headed<i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i></a></div>
-            <div class="grid gap-6 sm:grid-cols-2">
-              <article class="border-t-2 border-teal-700 bg-teal-50/60 p-6"><div class="flex items-center justify-between"><span class="text-5xl font-extrabold text-teal-800" aria-hidden="true">US</span><i data-lucide="map-pin" class="size-8 text-teal-700" aria-hidden="true"></i></div><p class="mt-8 text-xs font-semibold text-teal-700">UNITED STATES</p><h3 class="mt-2 text-2xl font-bold text-zinc-900">Los Angeles</h3><p class="mt-3 text-sm leading-6 text-zinc-600">Where our story started in 2009.</p><p class="mt-6 flex items-center gap-2 border-t border-teal-200 pt-4 text-xs font-semibold text-zinc-600"><i data-lucide="warehouse" class="size-4 text-teal-700" aria-hidden="true"></i>Warehouse & operations</p></article>
-              <article class="border-t-2 border-sky-700 bg-sky-50/60 p-6"><div class="flex items-center justify-between"><span class="text-5xl font-extrabold text-sky-800" aria-hidden="true">ES</span><i data-lucide="map-pin" class="size-8 text-sky-700" aria-hidden="true"></i></div><p class="mt-8 text-xs font-semibold text-sky-700">SPAIN</p><h3 class="mt-2 text-2xl font-bold text-zinc-900">Zaragoza</h3><p class="mt-3 text-sm leading-6 text-zinc-600">Our Spanish logistics & technology hub.</p><p class="mt-6 flex items-center gap-2 border-t border-sky-200 pt-4 text-xs font-semibold text-zinc-600"><i data-lucide="warehouse" class="size-4 text-sky-700" aria-hidden="true"></i>Warehouse & operations</p></article>
-            </div>
-          </div>
-          <div class="mt-12 flex flex-col items-start justify-between gap-6 border-t border-zinc-200 pt-7 sm:flex-row sm:items-center"><p class="max-w-xs text-xs leading-5 text-zinc-500">Part of our eight-carrier network across the United States and Spain</p><ul aria-label="Carriers in our network" class="flex flex-wrap items-center gap-6 text-xl font-extrabold text-zinc-500 sm:gap-8"><li>UPS</li><li>FedEx</li><li>DHL</li><li>MRW</li><li>SEUR</li></ul></div>
-        </div>
-      </section>
-      <section aria-labelledby="questions-heading" class="border-t border-zinc-200 bg-zinc-50">
-        <div class="mx-auto grid max-w-7xl gap-8 px-5 py-16 sm:px-8 md:grid-cols-[1fr_1.5fr] lg:px-12">
-          <div><p class="text-xs font-bold uppercase text-teal-700">A few things worth knowing</p><h2 id="questions-heading" class="mt-3 text-3xl font-bold text-zinc-900">Before we get moving.</h2></div>
-          <div>
-            <details class="group border-b border-zinc-300"><summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-teal-700">Who does TrackFlow work with?<i data-lucide="plus" class="size-4 shrink-0 group-open:hidden" aria-hidden="true"></i><i data-lucide="minus" class="hidden size-4 shrink-0 group-open:block" aria-hidden="true"></i></summary><p class="pb-5 text-sm leading-7 text-zinc-600">We work with e-commerce brands that need warehousing, fulfillment, delivery, or returns support in the United States and Spain. Share your shipment volume and service needs so we can explore the right fit.</p></details>
-            <details class="group border-b border-zinc-300"><summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-teal-700">Can I ask about just one service?<i data-lucide="plus" class="size-4 shrink-0 group-open:hidden" aria-hidden="true"></i><i data-lucide="minus" class="hidden size-4 shrink-0 group-open:block" aria-hidden="true"></i></summary><p class="pb-5 text-sm leading-7 text-zinc-600">Absolutely. Select fulfillment, last-mile delivery, returns, or a combination in our inquiry form. Tell us about your current operation and what you need next.</p></details>
-            <details class="group border-b border-zinc-300"><summary class="flex min-h-14 cursor-pointer list-none items-center justify-between gap-5 py-4 text-sm font-bold focus-visible:outline-2 focus-visible:outline-teal-700">Where are your warehouses?<i data-lucide="plus" class="size-4 shrink-0 group-open:hidden" aria-hidden="true"></i><i data-lucide="minus" class="hidden size-4 shrink-0 group-open:block" aria-hidden="true"></i></summary><p class="pb-5 text-sm leading-7 text-zinc-600">Our warehouses are in Los Angeles, United States, and Zaragoza, Spain. Each location has its own operations team, supported by our wider logistics and customer experience teams.</p></details>
+      <section id="why-trackflow" aria-labelledby="why-heading" class="scroll-mt-8 border-y border-zinc-200">
+        <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-12 lg:py-20"><p class="text-xs font-bold uppercase text-teal-700">Built around your business</p><h2 id="why-heading" class="mt-3 text-3xl font-bold text-zinc-900 sm:text-4xl">Why TrackFlow</h2>
+          <div class="mt-9 grid gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="border-t border-teal-200 pt-4"><h3 class="font-bold text-zinc-900">Binational operation</h3><p class="mt-2 text-sm leading-6 text-zinc-600">The only operator with own infrastructure in the United States and Spain.</p></article>
+            <article class="border-t border-sky-200 pt-4"><h3 class="font-bold text-zinc-900">+130 professionals</h3><p class="mt-2 text-sm leading-6 text-zinc-600">Dedicated to your logistics.</p></article>
+            <article class="border-t border-amber-200 pt-4"><h3 class="font-bold text-zinc-900">Own technology</h3><p class="mt-2 text-sm leading-6 text-zinc-600">For total visibility of your inventory.</p></article>
+            <article class="border-t border-emerald-200 pt-4"><h3 class="font-bold text-zinc-900">E-commerce specialization</h3><p class="mt-2 text-sm leading-6 text-zinc-600">In fashion, electronics, and cosmetics.</p></article>
           </div>
         </div>
       </section>
-      <section aria-labelledby="cta-heading" class="relative overflow-hidden bg-teal-800 text-white">
-        <div aria-hidden="true" class="pointer-events-none absolute inset-0 bg-[linear-gradient(115deg,transparent_50%,#ffffff08_50%,#ffffff08_65%,transparent_65%)]"></div>
-        <div class="relative mx-auto flex max-w-7xl flex-col justify-between gap-7 px-5 py-14 sm:px-8 md:flex-row md:items-center lg:px-12"><div><p class="text-xs font-semibold uppercase text-teal-100">The next chapter starts here</p><h2 id="cta-heading" class="mt-3 text-3xl font-bold sm:text-4xl">You grow. We'll handle the flow.</h2><p class="mt-4 text-sm leading-6 text-teal-50">Tell us about your brand. Let's find a better way to move it.</p></div><a href="/application.html" class="inline-flex min-h-12 shrink-0 items-center justify-center gap-4 self-start rounded-md bg-white px-6 py-3.5 text-sm font-bold text-teal-900 transition hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white md:self-auto">Let's talk logistics<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a></div>
-      </section>
-    </main>
-    <footer class="bg-white">
-      <div class="mx-auto max-w-7xl px-5 pb-6 pt-12 sm:px-8 lg:px-12">
-        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-[2fr_1fr_1fr_1fr]">
-          <div><a href="/" aria-label="TrackFlow home" class="inline-flex items-center gap-2.5 rounded-sm text-2xl font-extrabold text-zinc-900 focus-visible:outline-2 focus-visible:outline-teal-700"><span class="flex size-8 items-center justify-center rounded-md bg-teal-700 text-white"><i data-lucide="route" class="size-5" aria-hidden="true"></i></span>TrackFlow<span class="-ml-2 text-teal-700">.</span></a><p class="mt-4 max-w-xs text-sm leading-6 text-zinc-600">Your products. Our responsibility.<br>Logistics built around your brand.</p></div>
-          <div><h2 class="text-xs font-bold uppercase text-zinc-900">Our services</h2><ul class="mt-4 space-y-3 text-sm text-zinc-600"><li><a href="/application.html?service=fulfillment" class="rounded-sm hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Fulfillment</a></li><li><a href="/application.html?service=last-mile" class="rounded-sm hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Last-mile delivery</a></li><li><a href="/application.html?service=returns" class="rounded-sm hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Returns</a></li></ul></div>
-          <div><h2 class="text-xs font-bold uppercase text-zinc-900">Find us</h2><address class="mt-4 space-y-3 text-sm text-zinc-600 not-italic"><p>Los Angeles, United States</p><p>Zaragoza, Spain</p></address></div>
-          <div><h2 class="text-xs font-bold uppercase text-zinc-900">Get in touch</h2><p class="mt-4 text-sm leading-6 text-zinc-600">A new logistics chapter?<br>Start a conversation.</p><a href="/application.html" class="mt-2 inline-flex min-h-11 items-center gap-2 rounded-sm text-sm font-bold text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Contact our team<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a></div>
-        </div>
-        <div class="mt-10 flex flex-wrap justify-between gap-3 border-t border-zinc-200 pt-5 text-xs text-zinc-500"><p>&copy; <span data-year>2026</span> TrackFlow. All rights reserved.</p><div class="flex gap-6"><a href="/privacy.html" class="rounded-sm hover:text-teal-700 focus-visible:outline-2 focus-visible:outline-teal-700">Privacy & data</a><span>United States & Spain</span></div></div>
-      </div>
-    </footer>
-  </body>
-</html>
+      <section id="contact" aria-labelledby="contact-heading" class="scroll-mt-8 bg-teal-800 text-white">
+        <div class="mx-auto grid max-w-7xl gap-10 px-5 py-14 sm:px-8 md:grid-cols-2 lg:px-12 lg:py-16">
+          <div><p class="text-xs font-bold uppercase text-teal-100">Talk to our commercial team</p><h2 id="contact-heading" class="mt-3 text-3xl font-bold sm:text-4xl">Contact TrackFlow</h2><a href="mailto:comercial@trackflow.com" class="mt-6 inline-flex min-h-11 items-center gap-2 rounded-sm font-semibold underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-white"><i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i>comercial@trackflow.com</a></div>
+          <address class="grid gap-6 not-italic sm:grid-cols-2"><div><h3 class="font-bold">Los Angeles</h3><a href="tel:+12135550147" class="mt-2 inline-block text-sm text-teal-50 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-white">+1 213 555 0147</a></div><div><h3 class="font-bold">Zaragoza</h3><a href="tel:+34976123456" class="mt-2 inline-block text-sm text-teal-50 underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-white">+34 976 123 456</a></div><a href="/application.html" class="inline-flex min-h-12 items-center justify-center gap-3 rounded-md bg-white px-5 py-3 text-sm font-bold text-teal-900 hover:bg-teal-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white sm:col-span-2 sm:justify-self-start">Request information<i data-lucide="arrow-right" class="size-4" aria-hidden="true"></i></a></address>
++        </div>
++      </section>
++    </main>
++    <footer class="bg-white"><div class="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-5 py-6 text-sm text-zinc-600 sm:px-8 lg:px-12"><p>© 2025 TrackFlow. All rights reserved.</p><a href="https://linkedin.com/company/trackflow" class="inline-flex min-h-11 items-center gap-2 rounded-sm font-semibold text-teal-700 hover:text-teal-900 focus-visible:outline-2 focus-visible:outline-teal-700">LinkedIn<i data-lucide="arrow-up-right" class="size-4" aria-hidden="true"></i></a></div></footer>
++  </body>
++</html>

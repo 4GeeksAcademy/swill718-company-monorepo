@@ -20,24 +20,26 @@ npm --prefix uis/website run preview -- --port 4173
 
 The production output is in `dist/`. Deploy this directory to a static host. Pages: `/`, `/application.html`, and `/privacy.html`.
 
-## Form Contract and Assumptions
+## Syllabus Lead Form
 
-The repository's `CONTEXT.md` defines services and operating countries, but does **not** prescribe application fields, entity IDs, or field validation rules. This implementation assumes a B2B logistics inquiry, not a job application or recipient parcel lookup. It does not invent warehouse IDs, policies, delivery guarantees, street addresses, or contact email addresses.
+The landing page and information request follow [`milestones-1-context.md`](../../milestones-1-context.md). The form is for e-commerce companies looking to outsource logistics, not consumers tracking parcels or returning an individual order.
 
-| Name | Meaning | Validation |
-| --- | --- | --- |
-| `fullName` | Contact's full name | Required, trimmed, 2-100 characters; supports international names |
-| `email` | Contact email | Required, email format, maximum 254 characters |
-| `phone` | Contact phone | Optional; 7-15 digits, optional leading `+`, spaces, periods, parentheses, or hyphens |
-| `company` | Company / brand name | Required, trimmed, 2-120 characters |
-| `country` | Operating market | Required; `US` (United States) or `ES` (Spain) |
-| `monthlyShipments` | Estimated monthly shipment volume | Required integer, 1-1,000,000; an inquiry-form limit, not a stated company capacity |
-| `services` | Requested logistics services | At least one of `fulfillment`, `last-mile`, `returns` |
-| `startDate` | Preferred start date | Optional valid date from today through 2099-12-31, using the browser's local date |
-| `message` | Additional logistics context | Optional, maximum 2,000 trimmed characters |
-| `consent` | Permission to contact about this inquiry | Required checkbox |
+| Field name | Type | Required | Contract |
+| --- | --- | --- | --- |
+| `companyName` | text | Yes | At least 2 characters |
+| `contactPerson` | text | Yes | At least two words (first and last name) |
+| `corporateEmail` | email | Yes | Valid email with a domain |
+| `phone` | tel | Yes | `+` country code followed by a phone number |
+| `website` | url | No | If provided, valid `http://` or `https://` URL |
+| `country` | select | Yes | United States, Spain, Both, or Other |
+| `productType` | select | Yes | Fashion, Electronics, Cosmetics, Food, or Other |
+| `monthlyVolume` | select | Yes | 0-100, 101-500, 501-2000, 2000+, or Not sure |
+| `services` | checkboxes | Yes | One or more: Warehousing, Last mile, Reverse logistics |
+| `current3pl` | radio | Yes | Yes, No, or Evaluating options |
+| `comments` | textarea | No | Maximum 500 characters with visible counter |
+| `privacyPolicy` | checkbox | Yes | Must be accepted to submit |
 
-Service-specific links preselect the relevant checkbox. Validation runs on blur/change, while typing after a field has been visited, and for every field on submit. Errors use descriptive text, `aria-invalid`, linked descriptions, a focused error summary, and a polite announcement region. Clear resets entries, errors, counters, consent, and selections. Success is explicitly simulated: no network submission, database, cookies, or browser storage. JavaScript-disabled submission is blocked with an explanatory notice.
+Field-level error copy, values, and constraints are in `validation.js` and its unit tests. Validation runs on blur/change, then during input for fields already visited, and on every submit. Errors appear inline and in a focused summary. For a valid lead with `monthlyVolume` set to `0-100`, the exact syllabus warning appears and the user must explicitly confirm before simulated submission. The success message matches the syllabus and links to `comercial@trackflow.com`. No details are transmitted or stored.
 
 ## Checks
 
@@ -54,13 +56,13 @@ For an existing system Chromium, set `CHROMIUM_PATH=/path/to/chromium`. Browser 
 
 Automated accessibility checks do not certify full compliance. Before public release, also review screen-reader behavior, zoom/reflow, and keyboard operation manually. Run Lighthouse against the production preview or public Codespaces URL; target performance 80 or better. If PageSpeed Insights cannot access Codespaces, use local Lighthouse and retain its report.
 
-For milestone submission, include the Public Codespaces URL and a Lighthouse or PageSpeed screenshot with performance at least 80 in the PR description. Identify the main files under `uis/website/`, note the form assumptions above, and include test results. Confirm `CONTEXT.md` is unchanged and push the implementation to your own repository before submitting its URL.
+For milestone submission, include the Public Codespaces URL and a Lighthouse or PageSpeed screenshot with performance at least 80 in the PR description. Identify the main files under `uis/website/` and include test results. Keep both `CONTEXT.md` and `milestones-1-context.md` unchanged, and push the implementation to your own repository before submitting its URL.
 
 ### Latest Verification
 
-On 2026-10-04, the production build passed 4 validation tests and 14 browser tests. The latter cover all three pages at 375px, 768px, and 1440px, automated accessibility checks, and native invalid-date state handling.
+On 2026-10-05, the syllabus-aligned production build passed 5 validation tests and 14 browser tests. Browser checks cover all three pages at 375px, 768px, and 1440px, automated accessibility, exact syllabus validation copy, the low-volume warning and confirmation, and the Organization schema.
 
-A local mobile Lighthouse audit of `http://127.0.0.1:4173/` scored Performance **86**, Accessibility **100**, Best Practices **100**, and SEO **100**. These are measured results for that run, not guaranteed future scores. See the [score screenshot](../../docs/trackflow-lighthouse-mobile.png); HTML and JSON reports are generated locally in the ignored `test-results/` directory. The Codespaces forwarded URL still required authentication during verification; change port visibility to Public before external evaluation.
+A local mobile Lighthouse audit of `http://127.0.0.1:4173/` scored Performance **88**, Accessibility **100**, Best Practices **100**, and SEO **100**. These are measured results for that run, not guaranteed future scores. See the [score screenshot](../../docs/trackflow-lighthouse-mobile.png); HTML and JSON reports are generated locally in the ignored `test-results/` directory. The Codespaces forwarded URL still required authentication during verification; change port visibility to Public before external evaluation.
 
 ## Publication Checklist
 

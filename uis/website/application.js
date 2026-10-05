@@ -1,40 +1,44 @@
-import { localDate, serviceOptions, validateApplication, validateField } from './validation.js';
+import { needsLowVolumeWarning, serviceOptions, validateApplication, validateField } from './validation.js';
 
 const form = document.querySelector('#application-form');
 const summary = document.querySelector('#error-summary');
 const errorList = document.querySelector('#error-list');
 const success = document.querySelector('#success-panel');
 const announcement = document.querySelector('#validation-announcement');
+const warning = document.querySelector('#low-volume-warning');
 const touched = new Set();
 let submitted = false;
 
 const labels = {
-  fullName: 'Full name', email: 'Email address', phone: 'Phone number', company: 'Company / brand name',
-  country: 'Operating market', monthlyShipments: 'Monthly shipments', services: 'Services',
-  startDate: 'Preferred start date', message: 'Message', consent: 'Contact consent',
+  companyName: 'Company name', contactPerson: 'Contact person', corporateEmail: 'Corporate email',
+  phone: 'Phone', website: 'Company website', country: 'Main operating country', productType: 'Product type',
+  monthlyVolume: 'Estimated monthly shipping volume', services: 'Services of interest', current3pl: 'Current 3PL',
+  comments: 'Comments', privacyPolicy: 'Privacy policy acceptance',
 };
 
 function readValues() {
   const data = new FormData(form);
-  if (form.elements.namedItem('startDate').validity.badInput) data.set('startDate', 'invalid');
-  return { ...Object.fromEntries(data), services: data.getAll('services'), consent: data.has('consent') };
+  return { ...Object.fromEntries(data), services: data.getAll('services'), privacyPolicy: data.has('privacyPolicy') };
 }
 
 function fieldTarget(name) {
-  return name === 'services' ? document.querySelector('#service-fulfillment') : form.elements.namedItem(name);
+  if (name === 'services') return document.querySelector('#service-warehousing');
+  if (name === 'current3pl') return form.querySelector('[name="current3pl"]');
+  return form.elements.namedItem(name);
 }
 
 function showError(name, error) {
   const element = document.getElementById(`${name}-error`);
   element.textContent = error;
   element.hidden = !error;
-  const controls = name === 'services' ? form.querySelectorAll('[name="services"]') : [fieldTarget(name)];
+  const controls = ['services', 'current3pl'].includes(name)
+    ? form.querySelectorAll(`[name="${name}"]`) : [fieldTarget(name)];
   controls.forEach(control => {
     if (error) control.setAttribute('aria-invalid', 'true');
     else control.removeAttribute('aria-invalid');
   });
-  if (name === 'services') {
-    const group = document.querySelector('#services-group');
+  if (['services', 'current3pl'].includes(name)) {
+    const group = document.querySelector(`#${name}-group`);
     if (error) group.setAttribute('aria-invalid', 'true');
     else group.removeAttribute('aria-invalid');
   }
@@ -69,16 +73,26 @@ function validateControl(control, announce = false) {
   if (submitted) updateSummary(validateApplication(readValues()));
 }
 
-document.querySelector('#startDate').min = localDate();
 const service = new URLSearchParams(window.location.search).get('service');
 if (serviceOptions.includes(service)) document.getElementById(`service-${service}`).checked = true;
 
 form.addEventListener('focusout', event => validateControl(event.target, true));
-form.addEventListener('change', event => validateControl(event.target, true));
+form.addEventListener('change', event => {
+  warning.hidden = true;
+  validateControl(event.target, true);
+});
 form.addEventListener('input', event => {
-  if (event.target.name === 'message') document.querySelector('#message-count').textContent = event.target.value.length;
+  warning.hidden = true;
+  if (event.target.name === 'comments') document.querySelector('#comments-count').textContent = event.target.value.length;
   if (touched.has(event.target.name)) validateControl(event.target);
 });
+
+function showSuccess() {
+  warning.hidden = true;
+  form.hidden = true;
+  success.hidden = false;
+  success.focus();
+}
 
 form.addEventListener('submit', event => {
   event.preventDefault();
@@ -93,9 +107,18 @@ form.addEventListener('submit', event => {
     summary.focus();
     return;
   }
-  form.hidden = true;
-  success.hidden = false;
-  success.focus();
+  if (needsLowVolumeWarning(readValues())) {
+    warning.hidden = false;
+    warning.focus();
+    return;
+  }
+  showSuccess();
+});
+
+document.querySelector('#low-volume-continue').addEventListener('click', showSuccess);
+document.querySelector('#low-volume-review').addEventListener('click', () => {
+  warning.hidden = true;
+  document.querySelector('#monthlyVolume').focus();
 });
 
 form.addEventListener('reset', () => {
@@ -103,8 +126,9 @@ form.addEventListener('reset', () => {
   submitted = false;
   Object.keys(labels).forEach(name => showError(name, ''));
   summary.hidden = true;
+  warning.hidden = true;
   errorList.replaceChildren();
-  document.querySelector('#message-count').textContent = '0';
+  document.querySelector('#comments-count').textContent = '0';
   announcement.textContent = 'Form cleared.';
 });
 
@@ -112,7 +136,5 @@ document.querySelector('#new-inquiry').addEventListener('click', () => {
   form.reset();
   success.hidden = true;
   form.hidden = false;
-  fieldTarget('fullName').focus();
+  fieldTarget('companyName').focus();
 });
-
-document.querySelector('#submit-button').disabled = false;
