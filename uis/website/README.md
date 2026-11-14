@@ -41,6 +41,60 @@ The landing page and information request follow [`milestones-1-context.md`](../.
 
 Field-level error copy, values, and constraints are in `validation.js` and its unit tests. Validation runs on blur/change, then during input for fields already visited, and on every submit. Errors appear inline and in a focused summary. For a valid lead with `monthlyVolume` set to `0-100`, the exact syllabus warning appears and the user must explicitly confirm before simulated submission. The success message matches the syllabus and links to `comercial@trackflow.com`. No details are transmitted or stored.
 
+## TypeScript Data Utilities
+
+The warehouse and carrier utilities follow [the TrackFlow briefing](../../BRIEFINGcontext.md). They are independent of the public website's inquiry form: no page changes, backend, persistence, browser globals, or Node-only APIs are required. Import the source through Vite in browser code or use `tsx` during development. TypeScript targets ES2022 and does not migrate the existing JavaScript pages.
+
+Run from the repository root:
+
+```sh
+npm --prefix uis/website run typecheck
+npm --prefix uis/website run demo
+```
+
+The demo validates the briefing's sample literal objects before processing them, prints reports and edge-case examples, and includes an inventory movement. Its comparison matrix contains one row per carrier in `carrierNames` order; each row is `[score, costUSD]`. Expected results include inventory value **16975**, average shipment distance **320**, and UPS selected at **30.89** with score **76.4**. This is a demonstration, not an automated utility test suite.
+
+### Modules
+
+| Source | Responsibility |
+| --- | --- |
+| [src/types/models.ts](src/types/models.ts) | Product, Shipment, Carrier, InventoryMovement, supporting interfaces, literal unions, and result types |
+| [src/utils/collections.ts](src/utils/collections.ts) | Warehouse/category/low-stock filters and stock/reliability sorting |
+| [src/utils/search.ts](src/utils/search.ts) | Linear SKU/ID searches and ascending-weight binary search |
+| [src/utils/transformations.ts](src/utils/transformations.ts) | Shipping costs, carrier scoring/selection, category counts, inventory value, average distance, status groups, carrier usage, and lightest/heaviest products |
+| [src/utils/validations.ts](src/utils/validations.ts) | Product, shipment, and carrier business validation |
+| [src/index.ts](src/index.ts) | Public named exports for all types and utilities |
+| [src/demo.ts](src/demo.ts) | Executable typed examples with the briefing's sample data |
+
+For example, from a TypeScript module at the website root:
+
+```ts
+import { calculateTotalInventoryValue, validateProduct } from './src/index.js';
+import type { Product } from './src/index.js';
+
+export function validatedInventoryValue(products: Product[]): number {
+	const errors = products.flatMap((product) => validateProduct(product).errors);
+
+	if (errors.length > 0) {
+		throw new Error(errors.join('\n'));
+	}
+
+	return calculateTotalInventoryValue(products);
+}
+```
+
+### Contracts And Boundaries
+
+- Processing functions expect valid, typed entities and arrays; validate external data before calling them. Validators return `{ valid, errors }`, collect field errors, and defensively reject malformed runtime records. Their typed signatures and boolean results are not parsers or TypeScript type guards for arbitrary JSON. Convert serialized dates to valid `Date` instances first.
+- Required fields, enum values, finite numbers, booleans, nested objects, and valid dates are checked alongside the briefing's numeric bounds. No integer-only quantities, future-date bans, or extra status/stock consistency rules are imposed.
+- Filtering and sorting return new arrays without modifying input objects. Groups contain the original shipment objects in fresh arrays; results are not deep copies.
+- SKU lookup is case-insensitive; shipment IDs are exact matches. Both use linear search and return the first match or `null`.
+- Binary search requires products already sorted by ascending `weightKg`. It uses exact numeric equality, returns any matching index for duplicates, and returns `-1` for absence or a non-finite target. It neither sorts nor verifies sortedness, preserving logarithmic search complexity.
+- Empty arrays produce `[]` for collection operations and rankings, `0` for sums/averages, and `null` for product extrema or carrier selection. Category counts and status groups always contain every defined key, even when empty.
+- Shipping calculations apply the priority multiplier to base, total shipment weight, and distance costs. Monetary results, averages, and scores are rounded to two decimals only at the end; returned numbers do not retain trailing zero formatting.
+- Carrier suitability follows the briefing's score threshold of **50**, then lowest rounded shipping cost. Equal costs keep the first input carrier. Unsupported countries, priorities, weight, and fragility reduce scores but do not independently exclude carriers. Thus UPS wins the sample despite not operating in Spain; this is not a guarantee of operational eligibility.
+- Carrier usage ignores only `null` carrier assignments, counts across all statuses, and sorts by descending count, then lexicographic carrier name. Non-finite or non-positive `topN` yields `[]`; fractional limits are truncated. Product weight extrema keep the first input product on ties.
+
 ## Checks
 
 Run from the repository root:
